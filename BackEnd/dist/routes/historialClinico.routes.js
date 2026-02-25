@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const historialClinico_controller_1 = require("../controllers/historialClinico.controller");
+//import { registerValidator } from '../validators/auth.validator';
+const router = (0, express_1.Router)();
+router.post('/crear-historial-clinico', historialClinico_controller_1.crearHistorialClinico);
+router.get('/listar-historiales-clinicos', historialClinico_controller_1.listarHistorialesClinicos);
+router.get('/historial-clinico/:id', historialClinico_controller_1.obtenerHistorialClinico);
+router.get('/historial-clinico-mascota/:idMascota', historialClinico_controller_1.obtenerHistorialClinicoMascota);
+router.put('/modificar-historial-clinico/:id', historialClinico_controller_1.modificarHistorialClinico);
+router.delete('/eliminar-historial-clinico/:id', historialClinico_controller_1.eliminarHistorialClinico);
+exports.default = router;

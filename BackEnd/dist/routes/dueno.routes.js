@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const dueno_controller_1 = require("../controllers/dueno.controller");
+//import { registerValidator } from '../validators/auth.validator';
+const router = (0, express_1.Router)();
+router.post('/crear-dueno', dueno_controller_1.crearDueno);
+router.get('/listar-duenos', dueno_controller_1.listarDuenos);
+router.get('/dueno/:id', dueno_controller_1.obtenerDueno);
+router.put('/modificar-dueno/:id', dueno_controller_1.modificarDueno);
+router.delete('/eliminar-dueno/:id', dueno_controller_1.eliminarDueno);
+exports.default = router;

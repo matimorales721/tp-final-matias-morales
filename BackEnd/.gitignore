@@ -1,0 +1,10 @@
+# Dependencias
+node_modules/
+/vendor
+
+# Entorno
+.env
+
+# Archivos de SO
+.DS_Store
+Thumbs.db
