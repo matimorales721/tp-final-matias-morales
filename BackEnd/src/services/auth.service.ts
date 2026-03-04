@@ -87,6 +87,9 @@ export const login = async (
     console.log('Usuario encontrado en DB:', usuarioDB);
     if (!usuarioDB) throw invalidCredentialsError;
 
+    const hashedPassword = await bcrypt.hash(password, 10);
+    console.log('Contraseña hasheada para comparación:', hashedPassword);
+
     const isValid = await bcrypt.compare(password, usuarioDB.password);
     if (!isValid) throw invalidCredentialsError;
 

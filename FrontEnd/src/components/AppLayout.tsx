@@ -1,7 +1,7 @@
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import { useAuth } from '../modules/auth/AuthContext'
 
-function isAdminRole(roles: Array<string | { name: string }>) {
+function isAdminRole(roles: Array<string | { name: string }> = []) {
   return roles.some((role) => (typeof role === 'string' ? role : role.name).toUpperCase() === 'ADMIN')
 }
 
@@ -13,8 +13,7 @@ export function AppLayout() {
     await logout()
     navigate('/login', { replace: true })
   }
-
-  const isAdmin = user ? isAdminRole(user.roles) : false
+  const isAdmin = user ? isAdminRole(user.roles ?? []) : false
 
   return (
     <div className="app-shell">

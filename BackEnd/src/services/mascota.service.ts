@@ -9,7 +9,9 @@ export const crearMascota = async (data: Partial<IMascota>) => {
 };
 
 export const listarMascotas = async () => {
-  return await Mascota.find();
+  const mascotas = await Mascota.find();
+  console.log('Mascotas encontradas:', mascotas);
+  return mascotas;
 };
 
 export const obtenerMascota = async (id: string) => {
